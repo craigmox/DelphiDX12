@@ -2254,8 +2254,8 @@ type
         function GetPixelFormat(): TD2D1_PIXEL_FORMAT; stdcall;
         procedure SetDpi(dpiX: single; dpiY: single); stdcall;
         procedure GetDpi(out dpiX: single; out dpiY: single); stdcall;
-        function GetSize(): TD2D1_SIZE_F; stdcall;
-        function GetPixelSize(): TD2D1_SIZE_U; stdcall;
+        procedure GetSize(out size: TD2D1_SIZE_F); stdcall;
+        procedure GetPixelSize(out size: TD2D1_SIZE_U); stdcall;
 
         function GetMaximumBitmapSize(): UINT32; stdcall;
         function IsSupported(renderTargetProperties: PD2D1_RENDER_TARGET_PROPERTIES): longbool; stdcall;
