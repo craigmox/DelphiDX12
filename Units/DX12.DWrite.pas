@@ -940,7 +940,7 @@ type
         function GetGlyphCount(): UINT16; stdcall;
         function GetDesignGlyphMetrics(glyphIndices: PUINT16; glyphCount: UINT32; out glyphMetrics: PDWRITE_GLYPH_METRICS;
             isSideways: longbool = False): HResult; stdcall;
-        function GetGlyphIndices(codePoints: PUINT32; codePointCount: UINT32; out glyphIndices: PUINT16): HResult; stdcall;
+        function GetGlyphIndices(var codePoints: UINT32; codePointCount: UINT32; var glyphIndices: UINT16): HResult; stdcall;
         function TryGetFontTable(openTypeTableTag: UINT32; out tableData: Pointer; out tableSize: UINT32;
             out tableContext: pointer; out exists: longbool): HResult; stdcall;
         procedure ReleaseFontTable(tableContext: pointer); stdcall;
@@ -1111,7 +1111,7 @@ type
             out baseline: single): HResult; stdcall;
         function GetFontCollection(out fontCollection: IDWriteFontCollection): HResult; stdcall;
         function GetFontFamilyNameLength(): HResult; stdcall;
-        function GetFontFamilyName(out fontFamilyName: PWideChar; nameSize: UINT32): UINT32; stdcall;
+        function GetFontFamilyName(var fontFamilyName: WideChar; nameSize: UINT32): UINT32; stdcall;
         function GetFontWeight(): TDWRITE_FONT_WEIGHT; stdcall;
         function GetFontStyle(): TDWRITE_FONT_STYLE; stdcall;
         function GetFontStretch(): TDWRITE_FONT_STRETCH; stdcall;
